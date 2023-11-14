@@ -79,8 +79,7 @@ class SmsSingleSender
      * @param string $ext         服务端原样返回的参数，可填空串
      * @return string 应答json字符串，详细内容参见腾讯云协议文档
      */
-    public function sendWithParam($nationCode, $phoneNumber, $templId = 0, $params,
-        $sign = "", $extend = "", $ext = "")
+    public function sendWithParam($nationCode, $phoneNumber, $templId = 0, $params = [], $sign = "", $extend = "", $ext = "")
     {
         $random = $this->util->getRandom();
         $curTime = time();
@@ -93,8 +92,7 @@ class SmsSingleSender
         $tel->mobile = "".$phoneNumber;
 
         $data->tel = $tel;
-        $data->sig = $this->util->calculateSigForTempl($this->appkey, $random,
-            $curTime, $phoneNumber);
+        $data->sig = $this->util->calculateSigForTempl($this->appkey, $random, $curTime, $phoneNumber);
         $data->tpl_id = $templId;
         $data->params = $params;
         $data->sign = $sign;

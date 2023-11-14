@@ -1,5 +1,5 @@
 {
-    "name": "qcloudsms/qcloudsms_php",
+    "name": "weijiajia/qcloudsms_php",
     "type": "library",
     "description": "qcloud sms php sdk",
     "keywords": ["qcloud", "sms", "php", "sdk"],
@@ -8,6 +8,9 @@
         "psr-4": {
             "Qcloud\\Sms\\": "src/"
         }
+    },
+    "require": {
+        "ext-curl": "*"
     },
     "require-dev": {
         "sami/sami": "dev-master"
